@@ -10,9 +10,11 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    #shots = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable,)
+    Shot.containers = (updatable, drawable)
     myfield = AsteroidField()
     clock = pygame.time.Clock()
     dt = 0
@@ -34,6 +36,8 @@ def main():
                 return 0
         for member in drawable:
             member.draw(screen)
+        #for member in shots:
+        #    member.draw(screen)
         pygame.display.flip()
         dt = clock.tick(60)/1000
 
